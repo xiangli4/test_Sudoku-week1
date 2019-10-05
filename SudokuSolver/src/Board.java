@@ -8,8 +8,6 @@ public class Board {
     public Board(String fileName) throws FileNotFoundException {
         arr = new char[9][9];
         readFile(fileName);
-
-
     }
 
     public void readFile(String fileName) throws FileNotFoundException {
@@ -25,6 +23,10 @@ public class Board {
             rowNum++;
 
         }
+    }
+
+    public char[][] getBoard() {
+        return arr;
     }
 
     public String toString() {
