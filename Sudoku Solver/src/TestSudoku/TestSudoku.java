@@ -4,8 +4,8 @@ import org.junit.Test;
 import java.io.FileNotFoundException;
 
 public class TestSudoku {
-  @Test
-  public void testToString() throws FileNotFoundException {
+    @Test
+    public void testToString() throws FileNotFoundException {
         String fileName = "C:\\Users\\happy\\IdeaProjects\\Sudoku Solver\\src\\TestSudoku\\testSample.sdkx";
         Board b = new Board(fileName);
         String expect = "x6x1x4x5x\n" +
@@ -19,10 +19,10 @@ public class TestSudoku {
                 "x4x5x8x7x\n";
 
         Assert.assertEquals(expect, b.toString() );
-  }
+    }
 
-  @Test
-  public void testGetBoard() throws FileNotFoundException {
+    @Test
+    public void testGetBoard() throws FileNotFoundException {
         String fileName = "Sudoku Solver/src/TestSudoku/testSample.sdkx";
         Board b = new Board(fileName);
         char[][] expectedArray = new char[][]{
@@ -38,6 +38,24 @@ public class TestSudoku {
         };
 
         Assert.assertArrayEquals(expectedArray, b.getBoard()) ;
+    }
 
-  }
+    @Test
+    public void testBadFile() throws FileNotFoundException {
+        String fileName = "Sudoku Solver/src/TestSudoku/badFile.sdkx";
+        Board b = new Board(fileName);
+        char[][] expectedArray = new char[][]{
+                {'x', '6', 'x', '1', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'x', 'x', '8', '3', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+                {'\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000', '\u0000'},
+        };
+
+        Assert.assertArrayEquals(expectedArray, b.getBoard()) ;
+    }
 }
