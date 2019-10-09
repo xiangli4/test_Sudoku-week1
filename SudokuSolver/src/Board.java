@@ -18,7 +18,7 @@ public class Board {
         int rowNum = 0;
         while (input.hasNext()) {
             String line = input.next();
-            for (int i = 0; i < arr[rowNum].length; i++) {
+            for (int i = 0; i < line.length(); i++) {
                 char token = line.charAt(i);
                 arr[rowNum][i] = token;
             }
